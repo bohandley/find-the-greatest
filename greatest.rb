@@ -9,7 +9,7 @@
 def greatest_integer(array)
   raise(ArgumentError, "Argument must be an array") if array.class != Array
   raise(ArgumentError, "Array must contain an integer") if array.empty?
-  raise(ArgumentError, "Array must contain only integers") if !array.all? { |i| i.class == Integer}
+  raise(ArgumentError, "Array must contain only integers") if has_only_int?(array)
   stored = array[0]
   compare_values(stored, array)
   stored
@@ -20,6 +20,10 @@ def compare_values(stored, array)
     stored = integer if integer > stored        
   end
 end
+
+def has_only_int?(array)
+  !array.all? { |i| i.class == Integer}
+end  
 
 arr1 = [-1,-2,-3,-4,-5,-5,-6,]
 arr2 = [1,2,3,4,5]
