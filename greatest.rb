@@ -8,13 +8,17 @@
 
 def greatest_integer(array)
   raise(ArgumentError, "Argument must be an array") if array.class != Array
-  raise(ArgumentError), "Array must contain an integer") if array.empty?
+  raise(ArgumentError, "Array must contain an integer") if array.empty?
   raise(ArgumentError, "Array must contain only integers") if !array.all? { |i| i.class == Integer}
   stored = array[0]
+  compare_values(stored, array)
+  stored
+end
+
+def compare_values(stored, array)
   array.each do |integer|
     stored = integer if integer > stored        
   end
-  stored
 end
 
 arr1 = [-1,-2,-3,-4,-5,-5,-6,]
@@ -26,4 +30,5 @@ puts greatest_integer(arr1)
 puts greatest_integer(arr2)
 # puts greatest_integer(arr3)
 # puts greatest_integer(arr4)
-puts greatest_integer(arr5)
+# puts greatest_integer(arr5)
+
