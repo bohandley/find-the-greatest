@@ -6,3 +6,5 @@
   # store whichever value is greater and compare that to the next value
 # return the stored value
 
+def greatest_integer(array)
+end
